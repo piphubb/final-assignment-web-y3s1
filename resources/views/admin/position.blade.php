@@ -1,8 +1,8 @@
 <?php
     $dashboard="";
     $useractive = "";
-    $dept = "active";
-    $position="";
+    $dept = "";
+    $position="active";
 ?>
 
 @include("admin.header")
@@ -25,18 +25,18 @@
 
             $("#btn-save").click(function(){
 
-                //var dep = $("#depid").val();
-                var title = $("#deptitle").val();
-                var less = $('#lesson').val();
+                //var dep = $("#PostionID").val();
+                var title = $("#PositionTitle").val();
+                var depa = $('#DepartmentID').val();
 
-                if(title=="" || less==""){
+                if(title=="" || depa==""){
                     alert("Please Input Values");
                 }else{
 
             //alert("add");
-                    $.post("/adddepart",{txttitle:title,txtless:less},function (result) {
+                    $.post("/addposition",{txttitle:title,txtdepa:depa},function (result) {
                         alert(result);
-                        window.location.href="dept";
+                        window.location.href="position";
                     });
                 }
             });
@@ -48,7 +48,7 @@
                 var con = confirm("Do you want to Delete?");
                 //alert(id);
                 if(con==true){
-                    $.post("/deldepart",{deid:id},function (result) {
+                    $.post("/delposition",{deid:id},function (result) {
                     alert(result);
                     current_row.remove();
                     });
@@ -60,11 +60,11 @@
                 var current_row = $(this).closest("tr");
                 var id = current_row.find("td").eq(0).text();
                 var tit = current_row.find("td").eq(1).text();
-                var less = current_row.find("td").eq(2).text();
+                var depa = current_row.find("td").eq(2).text();
 
-                $("#txtdepid").val(id);
-                $("#deptitle").val(tit);
-                $("#lesson").val(less);
+                $("#txtPostionID").val(id);
+                $("#PositionTitle").val(tit);
+                $("#DepartmentID").val(depa);
                 
                 $("#modal_adduser").modal("show");
             });
@@ -73,14 +73,14 @@
             $('#btn-save-change').click(function(){
                 //alert("Upadate");
 
-                var depid = $("#txtdepid").val();
-                var title = $("#deptitle").val();
-                var less = $("#lesson").val();
+                var PostionID = $("#txtPostionID").val();
+                var title = $("#PositionTitle").val();
+                var depa = $("#DepartmentID").val();
 
 
-                    $.post("/updatedep",{txtdepid:depid,txttitle:title,txtless:less},function (result) {
+                    $.post("/updateposition",{txtPostionID:PostionID,txttitle:title,txtdepa:depa},function (result) {
                     alert(result);
-                    window.location.href="dept";
+                    window.location.href="position";
                     });
             });
     });
@@ -94,31 +94,41 @@
     //alert("hello")
 
 </script>
+<p></p>
 
-<div class="table-responsive" style="padding:10px;">
+<div class="row">
+    <div class="col-md-4">
+        <input type="text" class="form-control" id="validationCustom05" placeholder="Search" style="margin: 20px 1px 10px 10px;">
+    </div>
+    <div class="col-md-4 ml-auto">
+        <a href="#" class="btn app-btn-primary bg-danger" id="validationCustom05" style="margin: 20px 1px 10px 10px;">Search</a>
+    </div>
+</div>
+
+<div class="table-responsive" style="padding:5px;">
   <div align="right" style="padding:5px;">
     <a href="#" class="btn app-btn-primary" id="adduser">Add User</a>
-  </div>
+</div>
 
   <table class="table table-bordered table-hover" id="tbldept">
       <thead class="table-info">
           <tr class="">
-              <td>Department ID</td>
-              <td>Title</td>
-              <td>Shitf</td>
+              <td>positionid</td>
+              <td>position_title</td>
+              <td>department_id</td>
               <td>Action</td>
           </tr>
       </thead>
-        @foreach($userdata as $dept)
+        @foreach($userdata as $post)
         <tr>
             <td>
-                {{$dept->depid}}
+                {{$post->positionid}}
             </td>
             <td>
-                {{$dept->title}}
+                {{$post->position_title}}
             </td>
             <td>
-                {{$dept->lesson}}
+                {{$post->department_id}}
             </td>
             <td>
                 <a href="#" class="edit" id="edit"><i class="fa fa-edit"></i></a>
@@ -141,22 +151,22 @@
             <div class="modal-body">
                 <!-- add -->
                 <form>
-                    <input type="hidden" id="txtdepid" disabled>
+                    <input type="hidden" id="txtPostionID">
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="depid">Department ID</label>
-                            <input type="text" class="form-control" id="depid" disabled>
+                            <label for="PostionID">Postion ID</label>
+                            <input type="text" class="form-control" id="PostionID">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="deptitle">Title</label>
-                            <input type="text" class="form-control" id="deptitle">
+                            <label for="PositionTitle">Position title</label>
+                            <input type="text" class="form-control" id="PositionTitle">
                         </div>
                     </div><div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="lesson">Shift</label>
-                            <input type="text" class="form-control" id="lesson">
+                            <label for="DepartmentID">Department ID</label>
+                            <input type="text" class="form-control" id="DepartmentID">
                         </div>
                     </div>
                 </form>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DeptController;
+use App\Http\Controllers\PositionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::get("admin/user",[UserController::class,"viewUser"]);
 Route::post("/login",[UserController::class,"CheckLogin"]);
 Route::get("/logout",[UserController::class,"UserLogout"]);
 
+//view
 Route::get("admin/dept",[DeptController::class,"viewDept"]);
 
 //add department
@@ -53,3 +55,16 @@ Route::post("/deldepart",[DeptController::class,"deldep"]);
 //edit or update
 Route::post("/updatedep",[DeptController::class,"updatedep"]);
 
+//position rout
+
+//view
+Route::get("admin/position",[PositionController::class,"viewPosition"]);
+
+//add department
+Route::post("/addposition",[PositionController::class,"addPosition"]);
+
+//delete department
+Route::post("/delposition",[PositionController::class,"delPosition"]);
+
+//edit or update
+Route::post("/updateposition",[PositionController::class,"updatePosition"]);

@@ -2,6 +2,7 @@
     $dashboard="";
     $useractive = "active";
     $dept = "";
+    $position="";
 ?>
 
 @include("admin.header")
