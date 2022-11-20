@@ -144,7 +144,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="depid">Department ID</label>
-                            <input type="text" class="form-control" id="depid">
+                            <input type="text" class="form-control" id="depid" disabled>
                         </div>
                     </div>
                     <div class="form-row">
@@ -154,7 +154,7 @@
                         </div>
                     </div><div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="lesson">Lesson</label>
+                            <label for="lesson">Shift</label>
                             <input type="text" class="form-control" id="lesson">
                         </div>
                     </div>
