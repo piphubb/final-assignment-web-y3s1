@@ -221,6 +221,16 @@
 					        </a><!--//nav-link-->
 					    </li><!--//nav-item-->
 
+						<li class="nav-item">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+					        <a class="nav-link <?php echo $member;?>" href="/admin/member">
+
+							<i class="fa fa-user-plus"></i>
+
+		                       Member
+					        </a><!--//nav-link-->
+					    </li><!--//nav-item-->
+
 				    </ul><!--//app-menu-->
 			    </nav><!--//app-nav-->
 			    <div class="app-sidepanel-footer">

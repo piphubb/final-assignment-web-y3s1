@@ -3,6 +3,7 @@
     $useractive = "";
     $dept = "";
     $position="active";
+    $member="";
 ?>
 
 @include("admin.header")
@@ -163,9 +164,10 @@
                             <label for="PositionTitle">Position title</label>
                             <input type="text" class="form-control" id="PositionTitle">
                         </div>
-                    </div><div class="form-row">
+                    </div>
+                    <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="DepartmentID">Department ID</label>
+                            <label for="PositionTitle">Department ID</label>
                             <input type="text" class="form-control" id="DepartmentID">
                         </div>
                     </div>

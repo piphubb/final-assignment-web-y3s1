@@ -3,6 +3,7 @@
     $useractive = "";
     $dept="";
 	$position="";
+	$member="";
 ?>
 
 @include("admin.header")

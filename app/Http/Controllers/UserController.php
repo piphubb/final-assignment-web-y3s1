@@ -65,5 +65,31 @@ class UserController extends Controller
     }
     
     //insert
+    public function AddUser(Request $rq){
+        $user = $rq->txtusername;
+        $pass = $rq->txtpasswd;
 
+        $data=array('username'=>$user, 'password'=>$pass);
+        DB::table('tbluser')->insert($data);
+        echo "Succesful Added";
+    }
+
+    //delete
+    public function DelUser(Request $rq){
+        $user = $rq->userid;
+        DB::table('tbluser')->where('userid', $user)->delete();
+        echo "Record has been delete";
+    }
+
+    //up
+    public function UpdateUser(Request $rq){
+
+        $de = $rq->txtdepid;
+        $ti = $rq->txttitle;
+        $less = $rq->txtless;
+        
+        DB::table('tbluser')->where('userid', $de)->update(['username' => $ti,'password' => $less]);
+        echo "Record has been Update";
+        //echo $dep;
+    }
 }

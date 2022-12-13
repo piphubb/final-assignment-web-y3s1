@@ -1,9 +1,9 @@
 <?php
     $dashboard="";
     $useractive = "";
-    $dept = "active";
+    $dept = "";
     $position="";
-    $member="";
+    $member="active";
 ?>
 
 @include("admin.header")
@@ -34,11 +34,11 @@
                     alert("Please Input Values");
                 }else{
 
-            //alert("add");
-                    $.post("/adddepart",{txttitle:title,txtless:less},function (result) {
-                        alert(result);
-                        window.location.href="dept";
-                    });
+                alert("add success");
+                    // $.post("/adddepart",{txttitle:title,txtless:less},function (result) {
+                    //     alert(result);
+                    //     window.location.href="dept";
+                    // });
                 }
             });
 
@@ -104,29 +104,91 @@
   <table class="table table-bordered table-hover" id="tbldept">
       <thead class="table-info">
           <tr class="">
-              <td>Department ID</td>
-              <td>Title</td>
-              <td>Shitf</td>
+              <td>meberid </td>
+              <td>firstname</td>
+              <td>lastname</td>
+              <td>gender</td>
+              <td>username</td>
+              <td>password</td>
+              <td>departmentid</td>
+              <td>positonid</td>
+              <td>join_date</td>
+              <td>last_login_date</td>
               <td>Action</td>
           </tr>
       </thead>
-        @foreach($userdata as $dept)
         <tr>
             <td>
-                {{$dept->depid}}
+                1
             </td>
             <td>
-                {{$dept->title}}
+                ku
             </td>
             <td>
-                {{$dept->lesson}}
+                lin
+            </td>
+            <td>
+                Male
+            </td>
+            <td>
+                kulin
+            </td>
+            <td>
+                123
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                28-11-2022
+            </td>
+            <td>
+                28-11-2022
             </td>
             <td>
                 <a href="#" class="edit" id="edit"><i class="fa fa-edit"></i></a>
                 <a href="#" class="delete text-danger" id="del"><i class="fa fa-trash"></i></a>
             </td>
         </tr>
-      @endforeach
+        <tr>
+            <td>
+                2
+            </td>
+            <td>
+                ku
+            </td>
+            <td>
+                lin
+            </td>
+            <td>
+                Male
+            </td>
+            <td>
+                kulin
+            </td>
+            <td>
+                123
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                28-11-2022
+            </td>
+            <td>
+                28-11-2022
+            </td>
+            <td>
+                <a href="#" class="edit" id="edit"><i class="fa fa-edit"></i></a>
+                <a href="#" class="delete text-danger" id="del"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
   </table>
 
 </div>
@@ -141,26 +203,62 @@
             </div>
             <div class="modal-body">
                 <!-- add -->
-                <form>
-                    <input type="hidden" id="txtdepid" disabled>
+                    <form>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="depid">Department ID</label>
-                            <input type="text" class="form-control" id="depid" disabled>
+                        <label for="inputEmail4">MemberID</label>
+                        <input type="email" class="form-control" id="inputEmail4">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="deptitle">Title</label>
-                            <input type="text" class="form-control" id="deptitle">
+                        <label for="inputEmail4">firstname</label>
+                        <input type="email" class="form-control" id="inputEmail4">
                         </div>
-                    </div><div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="lesson">Shift</label>
-                            <input type="text" class="form-control" id="lesson">
+                        <label for="inputPassword4">lastname</label>
+                        <input type="text" class="form-control" id="inputPassword4">
                         </div>
                     </div>
-                </form>
+                    <div class="form-group">
+                        <label for="inputAddress">username</label>
+                        <input type="text" class="form-control" id="inputAddress">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">password</label>
+                        <input type="text" class="form-control" id="inputAddress2">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                        <label for="inputState">Gender</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Choose Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                        <label for="inputState">Department ID</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Choose Department</option>
+                            <option>IT</option>
+                            <option>English</option>
+                        </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                        <label for="inputZip">Join Date</label>
+                        <input type="date" class="form-control" id="inputZip">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                            Check me out
+                        </label>
+                        </div>
+                    </div>
+                    </form>
                 <!-- end -->
             </div>
             <div class="modal-footer">
